@@ -1,19 +1,30 @@
-version: 1
-
-repositories:
-  - name: backend
-    url: git@github.com:example/backend.git
-    tags:
-      - backend
-      - kotlin
-
-  - name: frontend
-    url: git@github.com:example/frontend.git
-    tags:
-      - frontend
-      - react
-
-  - name: contracts
-    url: git@github.com:example/contracts.git
-    tags:
-      - contracts
+$schema: https://json-schema.org/draft/2020-12/schema
+$title: Meta Repo Configuration
+type: object
+additionalProperties: false
+required: [version, repositories]
+properties:
+  version:
+    type: integer
+    const: 1
+  repositories:
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      required: [name, url, tags]
+      properties:
+        name:
+          type: string
+          minLength: 1
+        url:
+          type: string
+          format: uri
+          examples:
+            - https://github.com/example/backend.git
+        tags:
+          type: array
+          items:
+            type: string
+            minLength: 1
+          uniqueItems: true
