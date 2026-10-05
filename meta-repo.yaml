@@ -1,0 +1,19 @@
+version: 1
+
+repositories:
+  - name: backend
+    url: git@github.com:example/backend.git
+    tags:
+      - backend
+      - kotlin
+
+  - name: frontend
+    url: git@github.com:example/frontend.git
+    tags:
+      - frontend
+      - react
+
+  - name: contracts
+    url: git@github.com:example/contracts.git
+    tags:
+      - contracts
